@@ -16,7 +16,7 @@ Pod::Spec.new do |mqttc|
 	mqttc.ios.deployment_target = "6.1"
 	mqttc.osx.deployment_target = "10.10"
 	mqttc.tvos.deployment_target = "9.0"
-	mqttc.default_subspec = 'Websocket'
+	mqttc.default_subspec = 'Core'
 
 	mqttc.subspec 'Core' do |core|
 		core.dependency 'MQTTClient/Min'
@@ -44,7 +44,11 @@ Pod::Spec.new do |mqttc|
 					"MQTTClient/MQTTClient/MQTTSessionLegacy.{h,m}",
 					"MQTTClient/MQTTClient/MQTTSessionSynchron.{h,m}",
 					"MQTTClient/MQTTClient/MQTTTransport.{h,m}",
-					"MQTTClient/MQTTClient/GCDTimer.{h,m}"
+					"MQTTClient/MQTTClient/GCDTimer.{h,m}",
+					"MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
+		ws.dependency 'SocketRocket'
+		ws.requires_arc = true
+		ws.libraries = "icucore"
 	end
 
 	mqttc.subspec 'MinL' do |minl|
