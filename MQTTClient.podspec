@@ -46,9 +46,9 @@ Pod::Spec.new do |mqttc|
 					"MQTTClient/MQTTClient/MQTTTransport.{h,m}",
 					"MQTTClient/MQTTClient/GCDTimer.{h,m}",
 					"MQTTClient/MQTTClient/MQTTWebsocketTransport/*.{h,m}"
-		ws.dependency 'SocketRocket'
-		ws.requires_arc = true
-		ws.libraries = "icucore"
+		min.dependency 'SocketRocket'
+		min.requires_arc = true
+		min.libraries = "icucore"
 	end
 
 	mqttc.subspec 'MinL' do |minl|
